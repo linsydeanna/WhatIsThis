@@ -89,7 +89,7 @@ console.assert(whatIsThis.apply(trickyTricky) === "[object Object],,")
 // "This" represents the object trickyTricky.
 
 console.assert(whatIsThis.apply(confusing, ['nice', 'job']) === "[object, Object],nice,job")
-// Once you've figured out what the output is, answer here in a comment: Why is this so?
+// The apply method is running the whatIsThis function with the context of the object "confusing" and two arguments.
 
 console.assert(whatIsThis.apply(confusing, 'nice', 'job') === "Uncaught TypeError")
 // This returns an error because you need an array when using the apply method.
@@ -113,8 +113,11 @@ var newObject2 = new inAFunction('what will', 'happen?')
 console.assert(newObject2.test3('C', 'D') === '[object, Object],C,D')
 // Once you've figured out what the output is, answer here in a comment: Why is this so?
 
-console.assert(inAnObject.test1.call(trickyTricky, 'face', 'book') === FILL_ME_IN)
-// Once you've figured out what the output is, answer here in a comment: Why is this so?
+console.assert(inAnObject.test1.call(trickyTricky, 'face', 'book') === "[object Object],face,book")
+// inAnObject.test1 represents the whatIsThis function.
+// The .call method uses trickyTricky as the context.
+// whatIsThis runs with two arguments returning the answer.
 
-console.assert(inAnObject.anotherObject.test2.apply(confusing, ['foo', 'bar']) === FILL_ME_IN)
-// Once you've figured out what the output is, answer here in a comment: Why is this so?
+console.assert(inAnObject.anotherObject.test2.apply(confusing, ['foo', 'bar']) === "[object Object],foo,bar")
+// Once again the inAnObject.anotherObject.test2 represents the whatIsThis function.
+// The apply method is running the function with the context and two arguments.
